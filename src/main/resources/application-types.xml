@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<types:mule xmlns:types="http://www.mulesoft.org/schema/mule/types">
+  <types:catalog>
+    <types:type name="conversionResponseMetadata" format="json">
+      <types:shape format="weave" example="examples/responsemetadeta.json"><![CDATA[%dw 2.0
+
+type conversionResponseMetadata = {| doller: Number {"typeId": "int"} |} {"example": "{\\\"doller\\\":200}"}
+
+]]></types:shape>
+    </types:type>
+  </types:catalog>
+  <types:enrichment select="#3ff6d156-9c4f-4197-be5c-99aeebaa9ce5">
+    <types:processor-declaration>
+      <types:output-event>
+        <types:message>
+          <types:payload type="conversionResponseMetadata"/>
+        </types:message>
+      </types:output-event>
+    </types:processor-declaration>
+  </types:enrichment>
+</types:mule>
